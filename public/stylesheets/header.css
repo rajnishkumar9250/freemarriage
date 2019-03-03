@@ -1,0 +1,17 @@
+.company_logo img{
+    width: 100px;
+    height: 60px;
+}
+
+.userinfo .profilepic{
+    float: left;
+    width: 30px;
+    height: 30px;    
+    border-radius: 24px;
+}
+
+.drop-down-submenu{
+  position: relative;
+  top: 11px;
+  left: -56px;
+}

@@ -1,0 +1,199 @@
+<div class="profile_intro">
+  <h3> Profile Details</h3>
+  <div class="viewuserdetail" ng-show="user_profile.useredit == false">
+    <div ng-if="userInfo._id == profileUserInfo._id">
+      <button ng-click="user_profile.useredit=true;">Edit</button>
+    </div>
+    <div>
+      <div class="left">
+        <label>First Name</label>
+        <label>{{userintro.firstName}}</label>
+      </div>
+      <div class="right">
+        <label>Middle Name</label>
+        <label>{{userintro.middleName}}</label>
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>Last Name</label>
+        <label>{{userintro.lastName}}</label>
+      </div>
+      <div class="right">
+        <label>DOB</label>
+        <label>{{userintro.dob}}</label>
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>Gender</label>
+        <label>{{userintro.gender}}</label>
+      </div>
+      <div class="right">
+        <label>Email Id</label>
+        <label>{{userintro.emailId}}</label>
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>Phone Number</label>
+        <label>{{userintro.phoneNumber}}</label>
+      </div>
+      <div class="right">
+        <label>Current City</label>
+        <label>{{userintro.currentcity}}</label>
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>Profession</label>
+        <label>{{userintro.profession}}</label>
+      </div>
+      <div class="right">
+        <label>Home Town</label>
+        <label>{{userintro.hometown}}</label>
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>About Yourself</label>
+        <label>{{userintro.abtyourself}}</label>
+      </div>
+      <div class="right">
+        <label>Height</label>
+        <label>{{userintro.height}}</label>
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>Caste</label>
+        <label>{{userintro.caste}}</label>
+      </div>
+      <div class="right">
+        <label>Sub Caste</label>
+        <label>{{userintro.subcaste}}</label>
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>Religion</label>
+        <label>{{userintro.religion}}</label>
+      </div>
+      <!--<div class="right">
+        <label>Color Of Face</label>
+        <label>{{userintro.motherTongue}}</label>
+        <input type="text" name="facecolor" ng-model="userintro.faceColor">
+      </div>-->
+    </div>
+    <div>
+      <div class="left">
+        <label>MotherTongue</label>
+        <label>{{userintro.motherTongue}}</label>
+      </div>
+      <div class="right">
+        <label>Color Of Face</label>
+        <label>{{userintro.faceColor}}</label>
+      </div>
+    </div>
+  </div>
+  
+  <div class="updateuserdetail" ng-show="user_profile.useredit == true">
+    <form name="user_intro">
+    <div>
+      <div class="left">
+        <label>First Name</label>
+        <input type="text" name="firstname" ng-model="userintro.firstName">
+      </div>
+      <div class="right">
+        <label>Middle Name</label>
+        <input type="text" name="middlename" ng-model="userintro.middleName">
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>Last Name</label>
+        <input type="text" name="lastname" ng-model="userintro.lastName">
+      </div>
+      <div class="right">
+        <label>DOB</label>
+        <input type="text" name="dob" ng-model="userintro.dob">
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>Gender</label>
+        <input type="text" name="gender" ng-model="userintro.gender">
+      </div>
+      <div class="right">
+        <label>Email Id</label>
+        <input type="text" name="emailid" ng-model="userintro.emailId">
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>Phone Number</label>
+        <input type="text" name="phoneno" ng-model="userintro.phoneNumber">
+      </div>
+      <div class="right">
+        <label>Current City</label>
+        <input type="text" name="currentcity" ng-model="userintro.currentcity">
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>Profession</label>
+        <input type="text" name="profession" ng-model="userintro.profession">
+      </div>
+      <div class="right">
+        <label>Home Town</label>
+        <input type="text" name="hometown" ng-model="userintro.hometown">
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>About Yourself</label>
+        <input type="text" name="abtyourself" ng-model="userintro.abtyourself">
+      </div>
+      <div class="right">
+        <label>Height</label>
+        <input type="text" name="height" ng-model="userintro.height">
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>Caste</label>
+        <input type="text" name="caste" ng-model="userintro.caste">
+      </div>
+      <div class="right">
+        <label>Sub Caste</label>
+        <input type="text" name="subcaste" ng-model="userintro.subcaste">
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>Religion</label>
+        <input type="text" name="religion" ng-model="userintro.religion">
+      </div>
+      <div class="right">
+        <label>Color Of Face</label>
+        <input type="text" name="facecolor" ng-model="userintro.faceColor">
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>MotherTongue</label>
+        <input type="text" name="religion" ng-model="userintro.motherTongue">
+      </div>
+      <div class="right">
+        <label>Color Of Face</label>
+        <input type="text" name="facecolor" ng-model="userintro.faceColor">
+      </div>
+    </div>
+    <div>
+      <button name="updateprofileinfo" ng-click="updateUserIntro()">Update</button>
+    </div>
+  
+  </form>
+  </div>
+  
+</div>

@@ -1,0 +1,14 @@
+
+
+doc_id belongsTo filepath postId uploaddate uploadby
+
+
+{
+ doc_id : ,
+ belongsTo : [],
+ title : ,
+ postId : ,
+ filePath : ,
+ updateddate : ,
+ uploadby: 
+}

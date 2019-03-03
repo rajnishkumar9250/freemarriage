@@ -1,0 +1,47 @@
+.frdslistwrap{
+  width: 30%;
+  border: solid 1px #000000;
+  float: left;
+}
+
+.frdslistwrap .frd{
+  width: 100%;
+  border: solid 1px #000000;
+}
+
+.frdslistwrap .frd .frdPicwrap{
+  float:left;
+  width: 20%;
+}
+
+.frdslistwrap .frd .msgwrap{
+  float:left;
+  width: 80%;
+}
+
+.msgwrap{
+  width: 65%;
+  float: left;
+}
+
+.msg {
+  float: left;
+  clear: both;
+  width: 100%;
+}
+
+.msg .profilepic, .frdPicwrap .profilepic{
+  float: left;
+  width: 30px;
+  height: 30px;
+  border-radius: 24px;
+  margin-top: 5px;
+}
+
+.msgwrap .msg.receiver{
+  border: solid 1px black;
+}
+
+.msgwrap .msg.sender {
+  border: solid 1px black;
+}

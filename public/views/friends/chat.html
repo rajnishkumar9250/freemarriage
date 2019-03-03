@@ -1,0 +1,28 @@
+<div class="chatwrap">
+  <div class="frdslistwrap">
+    <div class="frd clearfix" ng-repeat="msg in messageList" ng-click="chatDetails(msg.friendInfo._id, $index)">
+      <div class="frdPicwrap">
+        <img ng-src="{{msg.friendInfo.profilePic?('images/'+msg.friendInfo._id+'/profile.jpg'):('images/default_user.png')}}" class="img-responsive profilepic"/>
+      </div>
+      <div class="msgwrap">
+        <span class="username">{{msg.friendInfo.userName}}</span>
+        <span class="msg">{{msg.message}}</span>
+      </div>
+      <!--<ul ng-repeat="msg in messageList">
+        <div class="userwrap" ng-click="setSenderId(msg.friendInfo._id, msg.friendInfo.userName)">
+          <img ng-src="{{msg.friendInfo.profilePic?('images/'+msg.friendInfo._id+'/profile.jpg'):('images/default_user.png')}}" class="img-responsive profilepic"/>
+          <span class="username">{{msg.friendInfo.userName}}</span>
+          <span class="message">{{msg.message}}</span>
+        </div>
+      </ul>-->
+    </div>
+  </div>
+  <div class="msgwrap">
+    <div class="msgheaderwrap">
+      <a ui-sref="profile({ username: selectedFrd.userName})"><h3>{{selectedFrd.userName}}</h3></a>
+    </div>
+    <div class="msgbodywrap">
+      
+    </div>
+  </div>
+</div>

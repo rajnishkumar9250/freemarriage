@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html ng-app="freeMarriage">
+   <head>
+      <title>Test Rajni
+      </title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+      <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+      <link rel="stylesheet" href="stylesheets/style.css">
+      <link rel="stylesheet" href="stylesheets/profile.css">
+      <link rel="stylesheet" href="stylesheets/chatbox.css">
+      <link rel="stylesheet" href="stylesheets/chat.css">
+      <link rel="stylesheet" href="stylesheets/header.css">
+      <link rel="stylesheet" href="stylesheets/galary.css">
+      <link rel="stylesheet" href="stylesheets/post.css">
+      
+      
+      <!-- javascript files --->
+      <script src="bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="bower_components/angular/angular.min.js"></script>
+      <script src="bower_components/angular-route/angular-route.min.js"></script>
+      <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+      <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+      <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+      <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCANlZfxUaZzhJVU_HZ-lZz7jlmXcpD_8Y&extension=.js"></script>    
+      <script src="javascripts/libs/socket.io-1.3.5.js"></script>
+      <script src="bower_components/underscore/underscore-min.js"></script>
+     
+     
+     
+     
+     
+     
+     
+    <!--controller files -->
+    <script src="javascripts/freeMarriage.js"></script>
+    <script src="javascripts/controller/navMenuCtrl.js"></script>
+    <script src="javascripts/controller/restapi.js"></script>
+    <script src="javascripts/services/service.js"></script>
+    <script src="javascripts/services/userInfoServ.js"></script>
+    <script src="javascripts/directive/directive.js"></script>
+    <script src="javascripts/controller/popupwindow.js"></script>
+    <script src="javascripts/controller/contactUs.js"></script>
+    <script src="javascripts/controller/chatBoxCtrl.js"></script>
+    <script src="javascripts/controller/galaryCtrl.js"></script>
+    <script src="javascripts/controller/homeCtrl.js"></script>
+    <script src="javascripts/controller/postCtrl.js"></script>
+    <script src="javascripts/controller/services.js"></script>
+    <script src="javascripts/controller/aboutUs.js"></script>
+    <script src="javascripts/controller/profileCtrl.js"></script>
+    <script src="javascripts/controller/profileIntroCtrl.js"></script>
+    <script src="javascripts/controller/profileImageCtrl.js"></script>
+    <script src="javascripts/controller/profilePreferenceCtrl.js"></script>
+    <script src="javascripts/controller/profileFacebook.js"></script>
+    <script src="javascripts/controller/profileTwitterCtrl.js"></script>
+    <script src="javascripts/controller/profileLinkedInCtrl.js"></script>
+    <script src="javascripts/controller/forgetpassword.js"></script>
+    <script src="javascripts/controller/resetpasswordCtrl.js"></script>
+    <script src="javascripts/controller/login.js"></script>
+    <script src="javascripts/controller/signUpCtrl.js"></script>
+    <script src="javascripts/controller/unfriendCtrl.js"></script>
+    <script src="javascripts/controller/friendCtrl.js"></script>
+    <script src="javascripts/controller/friendrequestsentCtrl.js"></script>
+    <script src="javascripts/controller/albumCtrl.js"></script>
+    <script src="javascripts/controller/chatCtrl.js"></script>
+   </head>
+   <body>
+      
+      <!--Header-->
+      <div  ng-include="'./views/header.html'" ng-controller="navMenuCtrl"> 
+      </div>
+      <!--body-->
+      <div class="container mainBody" >
+
+        <div class="row rowWithoutMargin" ui-view>
+          <div class="col-sm-4">
+            <h3>Column 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+          </div>
+          <div class="col-sm-4">
+            <h3>Column 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+          </div>
+          <div class="col-sm-4">
+            <h3>Column 3</h3>        
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+          </div>
+        </div>
+        <div class="chatBoxcontainerWrap"  ng-if="userInfo" ng-controller="chatBoxCtrl">
+          <div class="frdlist">
+            <!--<div ng-repeat="frd in userInfo.friends">
+              <span ng-click="setSenderId(frd._id, frd.userName)">{{frd.userName}}</span>
+            </div>-->
+            
+            <ul class="onlinefrdlist">
+              <li ng-repeat="frd in userInfo.friends">
+                <div class="usernamewrap">
+                  <img class="img-responsive profilepic" 
+                               ng-src="{{setFriendPic(frd._id, frd.profilePic)}}">
+                  <span ng-click="setSenderId(frd._id, frd.userName)" class="username">
+                    {{frd.userName}} 
+                  </span>
+                  <div class="useronlinestatus" ng-class="frd.onlinestatus == 'online'? 'online': 'offline'"></div>
+                </div>
+                  
+              </li>
+              
+            </ul> 
+            
+            
+          </div>
+          <div class="chatBoxcontainer" id="chatBoxcontainer">
+          
+          </div>
+          
+          
+          
+        </div>
+        <!--<div class="chatbox">
+          <h3>Username</h3>
+          <div class="msglist">
+            <div class="msg sender">
+              hi i m sender 
+            </div>
+            <div class="msg receiver">
+              hi i m receiver
+            </div>
+          </div>
+          <div class="writeNewMsg">
+            <textarea  ng-model="newWriteMessage"></textarea>
+          </div>
+        </div>-->
+      </div>
+      <!--footer-->
+      
+      
+      <!--popup window-->
+      <div class="container popupWrap" ng-controller="popupWindowCtrl" ng-if="popupWrap">
+         <div class="popupContentWrap">
+            <div class="popupClose">
+               <img src="images/icon/close-icon.png" class="img-responsive popupCloseBtn" alt="popup close" ng-click="closePopupWindow()">
+            </div>
+            <div  class="popupbodyWrap" ng-include src="pageUrl" > 
+            </div>
+            
+         </div>
+      </div>
+     
+      <!--Galary view wrap-->
+      <div class="galary" ng-controller="galaryCtrl" ng-show="galary.active == true">
+        <div class="gallery-overlay"></div>
+        <div class="gallery_view_wrap">
+        <div class="gallery_closetarget"></div>
+        <div class="gallery_content">
+          <button type="button" class="modal_btn modal_close_fixed js_close" ng-click="closeGalary()">
+            <span class="Icon Icon--close Icon--large">
+              <span class="visuallyhidden">Close</span>
+            </span>
+          </button>
+          <div class="gallery_media" style="background-color: rgb(38, 21, 28);">
+            <img alt="previous" src="images/icon/previous.png" class="previous" ng-disabled="galary.selectedImage < 1" ng-click="galary.selectedImage < 1 || nextPrevSelectImage(galary.selectedImage-1)" >
+            <img alt="" class="media-image" ng-src="{{galary.selectedImageUrl}}" data-height="667" data-width="1000" style="width: 778px; height: 518px; margin-top: 0px; margin-bottom: 0px;">
+            <img alt="next" src="images/icon/next.png" class="next" ng-disabled="galary.selectedImage >= galary.imageList.length" ng-click="galary.selectedImage >= galary.imageList.length || nextPrevSelectImage(galary.selectedImage+1)">
+          </div>
+        </div>
+     
+      </div>
+      </div>
+   </body>
+</html>

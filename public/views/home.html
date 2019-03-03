@@ -1,0 +1,233 @@
+<!--freemarriage intro-->
+<div ng-if="userInfo === undefined"> 
+  <!--carosel-->
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="./../images/image1.jpeg" alt="Chania" width="460" height="345">
+        </div>
+
+        <div class="item">
+            <img src="./../images/image2.jpg" alt="Chania" width="460" height="345">
+        </div>
+
+        <div class="item">
+            <img src="./../images/image3.jpg" alt="Flower" width="460" height="345">
+        </div>
+
+        <div class="item">
+            <img src="./../images/image4.jpg" alt="Flower" width="460" height="345">
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+  <div  class="row homeWrap">
+   <div class="col-md-5">
+      <h3>hello home welcome 1234</h3>
+       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+       Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+       when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+       It has survived not only five centuries, but also the leap into electronic typesetting,
+       remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+       sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+       like Aldus PageMaker including versions of Lorem Ipsum.
+   </div>
+   <div class="col-md-7">
+      <h3>hello home welcome 1234</h3>
+       Lorem Ipsum is simply dummy text of the printing and
+       typesetting industry. Lorem Ipsum has been the industry's
+       standard dummy text ever since the 1500s, when an unknown printer
+       took a galley of type and scrambled it to make a type specimen book.
+       It has survived not only five centuries, but also the leap into electronic
+       typesetting, remaining essentially unchanged. It was popularised in the 1960s
+       with the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+       with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+   </div>
+    <div class="col-md-12">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a
+        type specimen book. It has survived not only five centuries, but also the leap
+        into electronic typesetting, remaining essentially unchanged. It was popularised
+        in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+    </div>
+   
+</div>
+</div>
+
+<div ng-if="userInfo">
+  <div ng-controller="postCtrl" class="post">
+    <h3>Post controller</h3>
+
+    <div class="addPostWrap">
+        <div class="status">
+            <textarea ng-model="post.status" placeholder="whats in your mind .."></textarea>
+            
+            <div class="photowrapmodel clearfix" ng-if="addImage == true">           
+                <div class="photodiv addMoreImage">
+                  <span class="btn btn-default btn-file">
+                    <img src="../images/addImage.png"> <input type="file" id="file1" name="file" ng-files="addphoto($files, imgType)" imgType="displaypic" accept="image/*"/> 
+                  </span>
+                </div>
+            </div>
+            <div class="imgWrap">
+                <span class="btn btn-default btn-file">
+                    Add Photos<input type="file" id="file1" name="file" ng-files="addphoto($files, imgType)" imgType="displaypic" accept="image/*"/> 
+                </span>
+            </div>
+        </div>
+        <div class="statusSubmit">
+            <button ng-click="addStatus()">Post</button>
+        </div>
+    </div>
+
+
+    <div ng-repeat="post in postList">        
+        <div ng-if="post.postId.type == 'uploadcoverpic'">
+            <h3>
+                <a ui-sref="profile({username:post.createdBy.userName})">
+                    <img class="img-responsive profilepic" 
+                    ng-src="{{post.createdBy.profilePic ? ('./../../images/'+post.createdBy._id+'/profile.jpg'): './../../images/default_user.png'}}">
+                </a>
+                <a ui-sref="profile({username:post.createdBy.userName})" ng-bind="username=post.createdBy.firstName"></a> has updated his coverphoto
+            </h3>
+            <div class="img post_img">
+                <img ng-src="{{post.postId.type ? ('./../../images/'+post.postId.userId+'/coverpic.jpg'): './../../images/default_user.png'}}">
+                <!--<img ng-switch-when="uploadprofilepic" ng-src="./../../images/{{post.postId.userId}}/coverpic.jpg}}">-->
+                <!--<p>Default post</p>-->
+            </div>
+        </div>
+        <div ng-if="post.postId.type == 'uploadprofilepic'">
+            <h3>
+                <a ui-sref="profile({username:post.createdBy.userName})">
+                    <img class="img-responsive profilepic" 
+                        ng-src="{{post.createdBy.profilePic ? ('./../../images/'+post.createdBy._id+'/profile.jpg'): './../../images/default_user.png'}}">
+                </a>
+                <a ui-sref="profile({username:post.createdBy.userName})" ng-bind="username=post.createdBy.firstName"></a> has updated his Profile photo
+            </h3>
+            <div class="img post_img">
+                <img ng-src="{{post.postId.type ? ('./../../images/'+post.postId.userId+'/profile.jpg'): './../../images/default_user.png'}}">
+                <!--<img ng-switch-when="uploadprofilepic" ng-src="./../../images/{{post.postId.userId}}/coverpic.jpg}}">-->
+                <!--<p>Default post</p>-->
+            </div>
+        </div>
+        <div ng-if="post.postId.type == 'uploadalbum'">
+            <h3>
+                <a ui-sref="profile({username:post.createdBy.userName})">
+                    <img class="img-responsive profilepic" 
+                        ng-src="{{post.createdBy.profilePic ? ('./../../images/'+post.createdBy._id+'/profile.jpg'): './../../images/default_user.png'}}">
+                </a>
+                <a ui-sref="profile({username:post.createdBy.userName})" ng-bind="username=post.createdBy.firstName"></a> has created an album
+            </h3>
+            <div class="imgWrap img post_img">
+                <div class="leftImg " ng-if="post.postId.document" ng-style="{'width':(post.postId.document.length > 1) ? '50%':'100%', 'float':'left'}">
+                    <div ng-repeat="doc in post.postId.document  | limitTo:2" ng-style="{'height': (post.postId.document.length > 1) ? '50%':'100%'}">
+                            <img  ng-src="{{post.postId.type ? ('./../../images/'+ doc.createdby + '/image/'+ post.postId._id +'/' + doc.filepath) : 
+                            './../../images/default_user.png'}}" >
+                    </div>
+                    
+                    <!--<img src="'./../../images/'+post.postId.userId+'/profile.jpg'">-->
+                </div>
+                <div class="rightImg" ng-if="post.postId.document.length > 2" style="width:50%;float: left;">
+                    <div ng-repeat="doc in post.postId.document  | limitTo:2:2">
+                        <img   ng-src="{{post.postId.type ? ('./../../images/'+ doc.createdby + '/image/'+ post.postId._id +'/' + doc.filepath) : './../../images/default_user.png'}}">                        
+                    </div>                    
+                </div>
+                <div ng-if="post.postId.document.length > 4" class="extraImg">
+                    <div class="extText">
+                            + {{post.postId.document.length - 4}}
+                    </div> 
+                </div>    
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+
+        <div ng-if="post.postId.type == 'uploadimage'">
+            <h3>
+                <a ui-sref="profile({username:post.createdBy.userName})">
+                    <img class="img-responsive profilepic" 
+                        ng-src="{{post.createdBy.profilePic ? ('./../../images/'+post.createdBy._id+'/profile.jpg'): './../../images/default_user.png'}}">
+                </a>
+                <a ui-sref="profile({username:post.createdBy.userName})" ng-bind="username=post.createdBy.firstName"></a> has added photos
+            </h3>
+            <div class="imgWrap img post_img">
+                <div class="leftImg " ng-if="post.postId.document" ng-style="{'width':(post.postId.document.length > 1) ? '50%':'100%', 'float':'left'}">
+                    <div ng-repeat="doc in post.postId.document  | limitTo:2" ng-style="{'height': (post.postId.document.length > 1) ? '50%':'100%'}">
+                            <img  ng-src="{{post.postId.type ? ('./../../images/'+ doc.createdby + '/image/'+ post.postId._id +'/' + doc.filepath) : 
+                            './../../images/default_user.png'}}" >
+                    </div>
+                    
+                    <!--<img src="'./../../images/'+post.postId.userId+'/profile.jpg'">-->
+                </div>
+                <div class="rightImg" ng-if="post.postId.document.length > 2" style="width:50%;float: left;">
+                    <div ng-repeat="doc in post.postId.document  | limitTo:2:2">
+                        <img   ng-src="{{post.postId.type ? ('./../../images/'+ doc.createdby + '/image/'+ post.postId._id +'/' + doc.filepath) : './../../images/default_user.png'}}">                        
+                    </div>                    
+                </div>
+                <div ng-if="post.postId.document.length > 4" class="extraImg">
+                    <div class="extText">
+                            + {{post.postId.document.length - 4}}
+                    </div> 
+                </div>    
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+
+        <div ng-if="post.postId.type == 'uploadstatus' && post.postId.statusMsg">
+            <h3>
+                <a ui-sref="profile({username:post.createdBy.userName})">
+                    <img class="img-responsive profilepic" 
+                        ng-src="{{post.createdBy.profilePic ? ('./../../images/'+post.createdBy._id+'/profile.jpg'): './../../images/default_user.png'}}">
+                </a>
+                <a ui-sref="profile({username:post.createdBy.userName})" ng-bind="username=post.createdBy.firstName"></a> has updated status
+            </h3>
+            <div class="statusWrap">
+                <strong>{{post.postId.statusMsg}}</strong>
+            </div>
+            <div class="imgWrap img post_img">
+                <div class="leftImg " ng-if="post.postId.document" ng-style="{'width':(post.postId.document.length > 1) ? '50%':'100%', 'float':'left'}">
+                    <div ng-repeat="doc in post.postId.document  | limitTo:2" ng-style="{'height': (post.postId.document.length > 1) ? '50%':'100%'}">
+                            <img  ng-src="{{post.postId.type ? ('./../../images/'+ doc.createdby + '/image/'+ post.postId._id +'/' + doc.filepath) : 
+                            './../../images/default_user.png'}}" >
+                    </div>
+                    
+                    <!--<img src="'./../../images/'+post.postId.userId+'/profile.jpg'">-->
+                </div>
+                <div class="rightImg" ng-if="post.postId.document.length > 2" style="width:50%;float: left;">
+                    <div ng-repeat="doc in post.postId.document  | limitTo:2:2">
+                        <img   ng-src="{{post.postId.type ? ('./../../images/'+ doc.createdby + '/image/'+ post.postId._id +'/' + doc.filepath) : './../../images/default_user.png'}}">                        
+                    </div>                    
+                </div>
+                <div ng-if="post.postId.document.length > 4" class="extraImg">
+                    <div class="extText">
+                            + {{post.postId.document.length - 4}}
+                    </div> 
+                </div>    
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+      
+    </div>
+  </div>
+</div>

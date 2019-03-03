@@ -1,0 +1,97 @@
+<div class="profile_preference">
+  <h3> Hello profile preference html</h3>
+  <div class="user_preference_view" ng-show="user_preference.useredit == false">
+    <div ng-if="userInfo._id == profileUserInfo._id">
+      <button ng-click="user_preference.useredit=true;">Edit</button>
+    </div>
+    <div>
+      <div class="left">
+        <label>face Color</label>
+        <span>{{userpreference.faceColor}}</span>
+      </div>
+      <div class="right">
+        <label>caste</label>
+        <span>{{userpreference.caste}}</span>
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>subcaste</label>
+        <span>{{userpreference.subcaste}}</span>
+      </div>
+      <div class="right">
+        <label>heightRange</label>
+        <span>{{userpreference.heightRange}}</span>
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>ageRange</label>
+        <span>{{userpreference.ageRange}}</span>
+      </div>
+      <div class="right">
+        <label>motherTongue</label>
+        <span>{{userpreference.motherTongue}}</span>
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>qualification</label>
+        <span>{{userpreference.qualification}}</span>
+      </div>
+      <div class="right">
+        <label>annualIncomeRange</label>
+        <span>{{userpreference.annualIncomeRange}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="user_preference_edit" ng-show="user_preference.useredit == true">
+    <form name="user_intro">
+    <div>
+      <div class="left">
+        <label>face Color</label>
+        <input type="text" name="firstname" ng-model="userpreference.faceColor">
+      </div>
+      <div class="right">
+        <label>caste</label>
+        <input type="text" name="middlename" ng-model="userpreference.caste">
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>subcaste</label>
+        <input type="text" name="lastname" ng-model="userpreference.subcaste">
+      </div>
+      <div class="right">
+        <label>heightRange</label>
+        <input type="text" name="dob" ng-model="userpreference.heightRange">
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>ageRange</label>
+        <input type="text" name="gender" ng-model="userpreference.ageRange">
+      </div>
+      <div class="right">
+        <label>motherTongue</label>
+        <input type="text" name="emailid" ng-model="userpreference.motherTongue">
+      </div>
+    </div>
+    <div>
+      <div class="left">
+        <label>qualification</label>
+        <input type="text" name="phoneno" ng-model="userpreference.qualification">
+      </div>
+      <div class="right">
+        <label>annualIncomeRange</label>
+        <input type="text" name="currentcity" ng-model="userpreference.annualIncomeRange">
+      </div>
+    </div>    
+    <div>
+      <button name="updateprofileinfo" ng-click="updateUserPreference()">Update</button>
+    </div>
+  
+  </form>
+  </div>
+  
+</div>

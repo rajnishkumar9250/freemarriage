@@ -1,0 +1,140 @@
+.chatBoxcontainerWrap{
+  position: fixed;
+  bottom: 0px;
+  right: 0;
+  width: 80%;
+}
+
+.chatbox{
+  background-color: #11d3e2;
+  width: 300px;
+  margin: 5px;
+  float: left;
+}
+
+.chatboxheader  .username{
+  padding:5px;
+  font-size: 30px;
+}
+
+.closechattab{
+  width:30px;
+  height: 30px;
+  cursor:pointer;  
+  float: right;
+}
+
+.chatbox .writeNewMsg{
+  width:91%;
+  height: 100%;
+  float: left;
+}
+
+
+.chatbox .forwarmsg{
+  padding: 5px;
+  cursor: pointer;
+}
+
+.chatbox .writeNewMsg textarea{
+  width: 100%;
+  height: 32px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.chatbox .msglist{
+  max-height: 200px;
+  overflow-y: scroll;
+  height: 100px;
+  border: 1px;
+  border-color: #f5f5f5;
+  border-style: solid;
+  padding: 8px;
+}
+
+.chatbox .msglist .msg{
+  padding: 8px;
+  margin: 2px;
+  background-color: white;
+  border-radius: 4px;  
+}
+
+.chatbox .msglist .sender{
+  border-top-left-radius: 25px;
+}
+
+.chatbox .msglist .receiver{
+  border-top-right-radius: 25px
+}
+
+/*chatbox*/
+
+.chatBoxcontainer{
+  position: absolute;
+  bottom: 0;
+  float: right;
+  right: 20%;
+}
+
+/*chat friend list*/
+
+.frdlist{
+  width: 20%;
+  float: right;
+  background-color: #11d3e2;
+}
+
+.frdlist ul{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0;
+}
+
+.onlinefrdlist li:first-child .usernamewrap{
+  border-top: 1px solid #38322d;
+}
+
+.frdlist .usernamewrap{  
+  padding: 4px;
+  cursor:pointer;
+  height: 50px;
+  text-align: center;
+  line-height: 46px;
+  border-left: 1px solid #38322d;
+  border-right: 1px solid #38322d;
+  border-bottom: 1px solid #38322d;
+}
+
+.usernamewrap .profilepic{
+  float: left;
+  width: 30px;
+  height: 30px;
+  border-radius: 24px;
+  margin-top: 5px;
+}
+
+.usernamewrap .username{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 70%;
+  display: block;
+  float: left;
+}
+
+.useronlinestatus{
+  float: right;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-top: 15px;
+}
+
+.frdlist .online{
+  background-color: greenyellow;
+}
+
+.frdlist .offline{
+  background-color: red;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "async": "^2.1.5",
+    "body-parser": "^1.18.2",
+    "express": "~4.13.4",
+    "express-fileupload": "^0.3.0",
+    "jade": ">= 0.0.1",
+    "jwt-simple": "^0.5.1",
+    "method-override": "^2.3.10",
+    "moment": "^2.17.1",
+    "mongodb": "^2.2.16",
+    "mongoose": "^5.0.1",
+    "morgan": "^1.9.0",
+    "mysql": "^2.12.0",
+    "python-shell": "^0.4.0",
+    "socket.io": "^1.7.1",
+    "underscore": "^1.8.3"
+  }
+}

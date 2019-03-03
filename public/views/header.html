@@ -1,0 +1,109 @@
+<!--<p>test nav</p>-->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="height:62px;">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a  ui-sref="home" class="company_logo">
+                    <img src="images/logo.png" alt="company logo">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-if="userInfo == undefined">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a ui-sref="about-us">About</a>
+                    </li>
+                    <li>
+                        <a ui-sref="services">Services</a>
+                    </li>
+                    <li>
+                        <a ui-sref="contact-us">Contact</a>
+                    </li>
+                </ul>
+               <ul class="nav navbar-nav right_nav">
+                    <li>
+                        <a ui-sref="signup">Sign Up</a>
+                    </li>
+                    <li>
+                        <a ui-sref="login">Login</a>
+                    </li>
+                    
+               </ul>
+
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2" ng-if="userInfo">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a ui-sref="about-us">Test Rajni</a>
+                    </li>
+                    <li>
+                        <a ui-sref="services"></a>
+                    </li>
+                    <li>
+                        <a ui-sref="contact-us"></a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav right_nav userinfo">
+                    <!--<li>
+                      <img class="img-responsive profilepic"  ng-src="{{userInfo.profilePic}}">
+                    </li>-->
+                    <li>
+                       <a ui-sref="profile({username:userInfo.userName})">
+                          <img class="img-responsive profilepic" 
+                               ng-src="{{userInfo.profilePic}}">
+                          <span>{{userInfo.emailId}}</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a ui-sref="home">Home</a>
+                    </li>
+
+                    <li>
+                        <a ui-sref="unfriendlist">unfrds</a>
+
+                    </li>
+
+                    <li>
+                        <a href="#" ng-click="showChats()">chat</a>
+                        <div class="drop-down-submenu">
+                          <div class="beeperNub" style="right: 108px;"></div>
+                          <ul ng-repeat="msg in messageList" class="clearfix">
+                            <div class="userwrap" ng-click="setSenderId(msg.friendInfo._id, msg.friendInfo.userName)">
+                              <img ng-src="{{msg.friendInfo.profilePic?('images/'+msg.friendInfo._id+'/profile.jpg'):('images/default_user.png')}}" class="img-responsive profilepic"/>
+                              <span class="username">{{msg.friendInfo.userName}}</span>
+                              <span class="message">{{msg.message}}</span>
+                            </div>
+                          </ul> 
+                          <ul><span><a ui-sref="chat">All messages</a></span></ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a>Setting</a>
+                    </li>
+
+
+                    <li>
+                        <a ng-click="signOut()">Sign Out</a>
+
+                    </li>
+
+
+
+                </ul>
+                <ul class="nav navbar-nav right_nav">
+
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>

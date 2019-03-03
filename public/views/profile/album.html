@@ -1,0 +1,57 @@
+<div class="albumwrap">
+  <div class="albumdetailwrap">
+    <div class="albumdetail-header">
+    
+    </div>
+    <div class="albumdetail-body">
+      <h2>Photo Of You</h2>
+      <!--Image list start here-->
+      <div class="imglist">
+        <div  class="row unfriendlist">
+          <div class="col-md-3" ng-repeat="img in imglist">
+            <div class="padding">         
+                <div class="row profileImgWrap">
+                  <a src="#">
+                    <img class="profiledp img responsive-img" ng-src="{{'images/'+userId+'/image/'+currentAlbumId+'/'+img.filepath}}" ng-click="imageSelected(imglist, $index, 'albumlist')">
+                  </a>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Image list end here-->
+    </div>
+  </div>
+  <div class="otheralbumlistwrap">
+    <!--Album list start here-->
+    <h2>Albums Of You</h2>
+    <div  class="row unfriendlist">
+      <div class="col-md-3" ng-repeat="img in albumlist" ng-if="img._id != currentAlbumId">
+        <div class="padding">         
+            <div class="row profileImgWrap">
+              <a src="#">
+                <img class="profiledp img responsive-img" ng-src="{{img.documents.length > 0?('images/'+userId+'/image/'+img._id+'/'+img.documents[img.documents.length-1].filepath):('images/default_user.png')}}">
+              </a>
+            </div>
+            <div class="row profiledetailWrap">
+          <div class="padding">
+            <span>
+               {{img.title}}
+            </span>
+          </div>
+          <div >
+            <a ui-sref="albumdetail({userid:userId,albumid:img._id})">
+            <span>
+            {{img.documents.length}} 
+            </span> <span> Photos</span>
+            </a>
+          </div>
+        </div>
+        </div>
+      </div>
+
+    </div>
+    <!--Album list end here-->
+  </div>
+</div>

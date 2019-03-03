@@ -1,0 +1,9 @@
+post/Album
+
+
+{
+ postId : ,
+ title : ,
+ createdby : ,
+ createddate : ,
+}

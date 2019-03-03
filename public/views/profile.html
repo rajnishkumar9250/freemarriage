@@ -1,0 +1,211 @@
+<!--Profile-->
+<div class="profile_wrap">
+  <div class="row profile_head">
+    <div class="coverPhotoWrap">
+      <div class="row coverPhoto padding-0">
+        <img class="img-responsive clearfix" ng-src="{{profileCoverPic}}" alt="user cover photo" ng-click="imageSelected([profileCoverPic], 0)">
+        <span class="btn btn-default btn-file changeCoverPicOption" ng-if="userInfo._id == profileUserInfo._id">
+            Change Cover Pic <input type="file" id="file1" name="file" ng-files="uploadCoverPic($files)" imgType="coverpic" accept="image/*"/> 
+        </span>
+      </div>
+      <div class="userIconWrap">
+        <img class="img-responsive"  ng-src="{{profilepic}}" alt="user icon" ng-click="imageSelected([profilepic], 0)">
+        <div class="changeProfilePicOptionWrap">
+          <!--<li tabindex="-1" class="menu-item menu-shortcut"></li>-->
+          <div class="changeProfileOptionIcon" ng-if="userInfo._id == profileUserInfo._id">
+            <span class="btn btn-default btn-file">
+                Change Dp <input type="file" id="file1" name="file" ng-files="uploadDocument($files, imgType)" imgType="displaypic" accept="image/*"/> 
+            </span>
+            
+            
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="userInfoWrap">
+        <div class="userName">
+          <h4>{{profileUserInfo.firstName }} {{ profileUserInfo.lastName}}</h4>
+        </div>
+        <div class="userOption">
+          <button>update info</button>
+          <button>user log info</button>
+          <button>Recommend to friends</button>
+        </div>
+        <div >
+          <button ng-if="frdRequestStatus == 'addFriend'" ng-click="sendFriendRequest()">Add Friend</button>
+          <button ng-if="frdRequestStatus == 'acceptFriendRequest'" ng-click="acceptFriendRequest()"> Accept Friend Request</button>
+          <button ng-if="frdRequestStatus == 'friendRequestAlreadySent'">Friend Request Sent</button>
+          <button ng-if="frdRequestStatus == 'friend'" ng-click="unFriend()">Unfriend</button>
+          <button ng-if="following == true" ng-click="unfollowToUser()">unfollow</button>
+          <button ng-if="following == false" ng-click="followToUser()">follow</button>
+        </div>
+      </div>
+      <div class="profile-menu_wrap">
+      <div class="col-md-3"></div>
+      <div class="col-md-3 profile-info profile_menu">
+        <a ng-click="selectedMenu('about')">About</a>
+      </div>
+      <div class="col-md-3 profile-friends profile_menu">
+        <a ng-click="selectedMenu('friends')">Friends</a>
+      </div>
+      <div class="col-md-3 profile-photos profile_menu">
+        <a ng-click="selectedMenu('photos')">Photos</a>
+      </div>
+    </div>
+    </div>
+    
+    
+  </div>
+  <div class="row profile_body rowWithoutMargin" ng-if="activeMenu == 'about'">
+    <div class="col-md-3 profile_menu_option_wrap">
+      <div class="profile_menu_option">
+        <ul class="list-group">
+          <li class="list-group-item profileIntro" ui-sref="profile({menu:'intro'})" id="profileIntro" >Intro</li>
+          <li class="list-group-item" ui-sref="profile({menu:'preference'})" id="profilePref">Preferences</li>
+          <li class="list-group-item" ui-sref="profile({menu:'images'})" id="profileImage">Images</li>
+          <li class="list-group-item" ui-sref="profile({menu:'facebook'})" id="profileFacebook">Facebook</li>
+          <li class="list-group-item" ui-sref="profile({menu:'linkedIn'})" id="profileLinkedIn">LinkedIn</li>
+          <li class="list-group-item" ui-sref="profile({menu:'twitter'})" id="profileTwitter">Twitter</li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-9 profile_menu_content_view_wrap">
+      <div class="row profile_menu_content">
+        hi this is content of menu option
+        <div class="profile_menu_body" ng-include="profile_menu_option_selected">
+          
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  
+  <div class="row profile_body rowWithoutMargin" ng-if="activeMenu == 'friends'">
+     <div class="col-md-5" ng-repeat="frd in friends">
+         <div class="col-md-4 img img-responsive" ng-init="x_{$index} = 'friendrequestsent'">
+           <a ui-sref="profile({ username: frd.userName})">
+            <img ng-src="{{frd.profilePic ? ('./../../images/'+frd._id+'/profile.jpg'): './../../images/default_user.png'}}">
+           </a>
+         </div>
+       <div class="col-md-4">{{frd.firstName}} {{frd.lastName}} </div>
+       <div class="col-md-4" ng-if="x_{$index} =='friend'">friend</div>
+       <div class="col-md-4" ng-if="x_{$index} =='friendrequestsent'">sent friend request</div>
+       <div class="col-md-4" ng-if="x_{$index} =='addfriend'">add friend</div>
+     </div>
+     
+  </div>
+  
+  <div class="row profile_body rowWithoutMargin" ng-if="activeMenu == 'photos'">
+    <h1> photos menu</h1>
+    <div>
+      <span class="btn btn-default btn-file">
+          Add Photos<input type="file" id="file1" name="file" ng-files="addphoto($files, imgType)" imgType="displaypic" accept="image/*"/> 
+      </span>
+      <span class="btn btn-default btn-file">
+          Create Album <input type="file" id="file_album" name="file_album" ng-files="createalbum($files, imgType)" imgType="displayalbum" accept="image/*"/> 
+      </span>
+    </div>
+    <!--add photo model wrap-->
+    <div class="photowrap" ng-if="addImage == true">
+      <div class="photowrapbackground"></div>
+      <div class="photowrapmodelwrap">
+        <div class="photowrapmodelwrapclosebutton clearfix">
+          <div class="title" style="float: left;">Add image</div>
+          <div class="closeButton" style="float: right;cursor: pointer;" ng-click="closeUploadImageOption()">X</div>
+        </div>
+        <div class="photowrapmodel clearfix">           
+          <div class="photodiv addMoreImage">
+            <span class="btn btn-default btn-file">
+              <img src="../images/addImage.png"> <input type="file" id="file1" name="file" ng-files="addphoto($files, imgType)" imgType="displaypic" accept="image/*"/> 
+            </span>
+          </div>
+        </div>
+        <div class="photowrapbottomwrap clearfix">
+          <div>
+            <button type="button" class="btn btn-primary postbutton" ng-click="submitAddImage()">Post</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---->
+    
+    <!--create album model wrap-->
+    <div class="photowrap" ng-if="addAlbum == true">
+      <div class="photowrapbackground"></div>
+      <div class="photowrapmodelwrap">
+        <div class="photowrapmodelwrapclosebutton clearfix">
+          <div class="title" style="float: left;">Add Album</div>
+          <div class="closeButton" style="float: right;cursor: pointer;" ng-click="closeUploadAlbumOption()">X</div>
+        </div>
+        <div class="titlewrap clearfix">
+          <div>
+            <textarea ng-model="album.albumtitle" placeholder="Enter title of album">
+            
+            </textarea>
+          </div>
+        </div>
+        <div class="photowrapmodel clearfix">           
+          <div class="photodiv addMoreAlbum">
+            <span class="btn btn-default btn-file">
+              <img src="../images/addImage.png"> <input type="file" id="file1" name="file" ng-files="createalbum($files, imgType)" imgType="displaypic" accept="image/*"/> 
+            </span>
+          </div>
+        </div>
+        <div class="photowrapbottomwrap clearfix">
+          <div>
+            <button type="button" class="btn btn-primary postbutton" ng-click="submitAddAlbum()">Post</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---->
+    <!--Image list start here-->
+    <div  class="row unfriendlist">
+      <div class="col-md-3" ng-repeat="img in imglist">
+        <div class="padding">         
+            <div class="row profileImgWrap">
+              <a src="#">
+                <img class="profiledp img responsive-img" ng-src="{{img.postId?('images/'+profileUserInfo._id+'/image/'+img.postId+'/'+img.filepath):('images/'+profileUserInfo._id+'/image/'+img.filepath)}}" ng-click="imageSelected(imglist, $index, 'photolist')">
+              </a>
+            </div>
+
+        </div>
+      </div>
+
+    </div>
+    <!--Image list end here-->
+    
+    <!--Album list start here-->
+    <h2>Albums Of You</h2>
+    <div  class="row unfriendlist">
+      <div class="col-md-3" ng-repeat="img in albumlist">
+        <div class="padding">         
+            <div class="row profileImgWrap">
+              <a src="#">
+                <img class="profiledp img responsive-img" ng-src="{{img.documents.length > 0?('images/'+profileUserInfo._id+'/image/'+img._id+'/'+img.documents[img.documents.length-1].filepath):('images/default_user.png')}}">
+              </a>
+            </div>
+            <div class="row profiledetailWrap">
+          <div class="padding">
+            <span>
+               {{img.title}}
+            </span>
+          </div>
+          <div >
+            <a ui-sref="albumdetail({userid:profileUserInfo._id,albumid:img._id})">
+              <span>
+                {{img.documents.length}} 
+              </span> 
+              <span> Photos</span>
+            </a>
+          </div>
+        </div>
+        </div>
+      </div>
+
+    </div>
+    <!--Album list end here-->
+  </div>
+</div>

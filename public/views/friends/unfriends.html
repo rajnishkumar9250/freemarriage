@@ -1,0 +1,32 @@
+<!--carosel-->
+
+
+
+
+<div  class="row unfriendlist">
+   <div class="col-md-3" ng-repeat=" frd in unfriendlist">
+     <div class="padding">         
+        <div class="row profileImgWrap">
+          <a ui-sref="profile({ username: frd.userName})">
+             <img class="img img-responsive closeicon" src="./../../images/icon/fileclose.png" ng-click="removeFrdProfile($event)">
+             <img class="profiledp img responsive-img" ng-src="{{frd.profilePic ? ('./../../images/'+frd._id+'/profile.jpg'): './../../images/default_user.png'}}">
+          </a>
+        </div>
+        <div class="row profiledetailWrap">
+          <div class="padding">
+            <a ui-sref="profile({ username: frd.userName})"> 
+               <span>
+                   {{frd.userName}}
+               </span>
+            </a>
+          </div>
+          <div >
+            <button class="standardButton" ng-click="sendFrdRequest(frd._id)">Send Request</button>
+          </div>
+        </div>
+    </div>
+           
+       
+   </div>
+  <h2 ng-if="unfriendlist < 1"> No friends found !</h2>
+</div>
