@@ -33,7 +33,7 @@
   width: 500px;
   margin-top: 111px;
 }
-.photodiv{
+.photodiv, .albumdiv{
   width: 100px;
   height: 100px;
   margin-left: 5px;
@@ -44,11 +44,11 @@
   width: 100%;
   height: 100%;
 }
-.addMoreImage{
+.addMoreImage, .addMoreAlbum{
   border: dotted 2px black;
 }
 
-.addMoreImage span{
+.addMoreImage span, .addMoreAlbum span{
   width: 100%;
   height: 100%;
 }

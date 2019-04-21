@@ -78,28 +78,83 @@
 
 <div ng-if="userInfo">
   <div ng-controller="postCtrl" class="post">
-    <h3>Post controller</h3>
+    <h3>Post controller </h3>
 
     <div class="addPostWrap">
         <div class="status">
-            <textarea ng-model="post.status" placeholder="whats in your mind .."></textarea>
-            
-            <div class="photowrapmodel clearfix" ng-if="addImage == true">           
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<a href="#">
+						<span class="glyphicon glyphicon-film"></span> 		News Feed
+						</a><br>
+						<a href="#">
+							<span class="glyphicon glyphicon-book"></span> 	Messenger
+						</a><br>
+						<a href="#">
+							<span class="glyphicon glyphicon-phone"></span>	 Mobile
+						</a><br>
+						<a href="#">
+							<span class="glyphicon glyphicon-home"></span> 	Market Place
+						</a>
+						<p>Shorcuts</p>
+						<a href="#">
+							<span class="glyphicon glyphicon-glass"></span> Hot addicts
+						</a><br><br>
+						<p>Explore</p><br>
+						<a href="#">
+						<span class="glyphicon glyphicon-flag"></span> Flag
+						</a><br>
+						<a href="#">
+							<span  class="glyphicon glyphicon-user"></span> groups
+						</a><br>
+						<a href="#">
+							<span class="glyphicon glyphicon-user"></span>friend list
+						</a><br>
+						<a href="#">
+							<span class="glyphicon glyphicon-music"></span> game
+						</a>
+					</div>
+			<div class="col-sm-6">
+				<img src="images/chandra_test.jpg" alt="pp"class="img-circle" style="height: 40px;
+    width: 40px;">
+				 <textarea ng-model="post.status" placeholder="Write Something here..."></textarea>
+				<div class="photowrapmodel clearfix" ng-if="addImage == true">           
                 <div class="photodiv addMoreImage">
                   <span class="btn btn-default btn-file">
                     <img src="../images/addImage.png"> <input type="file" id="file1" name="file" ng-files="addphoto($files, imgType)" imgType="displaypic" accept="image/*"/> 
                   </span>
                 </div>
             </div>
-            <div class="imgWrap">
+				<hr>
+				<div class="Container">
+					<ul class="pager">
+						<li><span class="glyphicon glyphicon-picture btn btn-file">	Photo/video <input type="file" id="file1" name="file" ng-files="addphoto($files, imgType)" imgType="displaypic" accept="image/*"/></span></li>
+						<li><a href="#"><span class="glyphicon glyphicon-user"></span> Tag friends</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-laugh"> feeling/active..</span></a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-option-horizontal"></span></a></li>
+						<div class="statusSubmit">
+							<button ng-click="addStatus()">Post</button>
+						</div>
+					</ul>
+				</div>
+			</div>
+		<div class="col-sm-4">
+			<h2>Stories</h2>
+			<a href="#">
+				<span class="badge badge-default">+</span> Add to your stories
+			</a>
+		</div>
+		</div>
+		</div>
+           <div class="imgWrap">
                 <span class="btn btn-default btn-file">
                     Add Photos<input type="file" id="file1" name="file" ng-files="addphoto($files, imgType)" imgType="displaypic" accept="image/*"/> 
                 </span>
+				<input type="file" id="file1" name="file" ng-files="addphoto($files, imgType)" imgType="displaypic" accept="image/*"/>
             </div>
         </div>
-        <div class="statusSubmit">
-            <button ng-click="addStatus()">Post</button>
-        </div>
+        
     </div>
 
 

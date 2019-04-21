@@ -1,14 +1,16 @@
-<div class="col-md-3"></div>
-<div class="col-md-6">
+<div class="row">
+<div class="col-md-4 contactUsEmailWrap">
     <h3>Login</h3>
     <form role="form" class="custom_input" ng-submit="login()">
        <div class="form-group">
            <!--<label for="email">Email address:</label>-->
-           <input type="email" placeholder="Email address" ng-model="user.emailId" id="email">
+		   <label for="Enter Email Id">Enter Email Id:</label>
+           <input type="email" placeholder=" Enter Email Id" ng-model="user.emailId" id="email">
        </div>
        <div class="form-group">
         <!--<label for="pwd">Password:</label>-->
-        <input type="password" placeholder="Password" ng-model="user.password" id="pwd">
+		   <label for="Enter Password">Enter Password:</label>
+        <input type="password" placeholder=" Enter Password" ng-model="user.password" id="pwd">
       </div>
       <div class="form-group">
           <button type="submit" class="btn btn-default standardButton">Submit</button>
@@ -17,4 +19,4 @@
 
     </form>
 </div>
-<div class="col-md-3"></div>
+</div>
