@@ -28,7 +28,7 @@ angular.module('freeMarriage')
           dataToSend.userId = $rootScope.userInfo._id;
           dataToSend.friendId = frdId;
           console.log("Data To Send: ", dataToSend);
-          $http.post('/sendFriendRequest', dataToSend).then(function (res) {
+          $http.post('/friend/sendFriendRequest', dataToSend).then(function (res) {
               $scope.unfriendlist = res.data.friends;
           }, function (err) {
               console.log("Error: ", err);

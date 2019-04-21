@@ -93,5 +93,6 @@ exports.historiesList = function(req, res){
     });  
   });
   
-  eventEmitter.emit('followToList', dataToQuery.userId);
+  eventEmitter.emit('historyList');
+  //eventEmitter.emit('followToList', dataToQuery.userId);
 };

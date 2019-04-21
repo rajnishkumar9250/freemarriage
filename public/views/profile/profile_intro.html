@@ -23,10 +23,10 @@
 <div class="profile_intro">
  <div class="viewuserdetail" ng-show="user_profile.useredit == false">
     <div ng-if="userInfo._id == profileUserInfo._id">
-     <a href="#" class="btn btn-info btn-sm" style="float: right;">
-          <span class="glyphicon glyphicon-pencil"></span> 	Edit 
+    	<span ng-click="user_profile.useredit=true;" class="btn btn-info btn-sm" style="float: right;">
+          <span class="glyphicon glyphicon-pencil" ></span> 	Edit 
         </a>
-	 </div>
+	</div>
     <table style="width: 100%;">
 	  <thead>
 			<tr>
